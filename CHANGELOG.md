@@ -1,3 +1,7 @@
+## 1.0.1
+
+- can change if listen bloc or not and default false
+
 ## 1.0.0
 
 - Support multi provider

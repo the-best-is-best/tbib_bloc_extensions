@@ -10,6 +10,6 @@ extension ExtBlocExt on TBIBBlocExt {
   static late BuildContext _blocContext;
   set setBlocContext(context) => _blocContext = context;
   //BuildContext get getBlocContext => blocContext;
-  T getBloc<T extends StateStreamableSource<Object?>>() =>
-      BlocProvider.of<T>(_blocContext);
+  T getBloc<T extends StateStreamableSource<Object?>>({bool? listen}) =>
+      BlocProvider.of<T>(_blocContext, listen: listen ?? false);
 }
