@@ -1,3 +1,7 @@
+## 1.0.2
+
+- now need to init extension before app run see readme
+
 ## 1.0.1
 
 - can change if listen bloc or not and default false

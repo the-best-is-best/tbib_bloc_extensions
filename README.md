@@ -2,6 +2,24 @@
 
 Use this extension to get your bloc and access it without context
 
+## note v1.0.2 solve can't get bloc if bloc in runApp see how init package
+
+```dart
+// 1- need to create navigation key 
+  GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
+
+ // 2 in material app or cupertino app
+ MitXMaterialApp(
+            navigatorKey: navigatorKey,
+            ....
+            builder: (context, child) {
+              TBIBBlocExt.init(navigatorKey);
+              ....
+              return child!
+            }
+ );
+```
+
 ## Usage
 
 ```dart
