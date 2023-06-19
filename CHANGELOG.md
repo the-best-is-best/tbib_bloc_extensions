@@ -1,3 +1,11 @@
+## 1.0.4
+
+- support bloc repository
+
+## 1.0.3
+
+- change readme
+
 ## 1.0.2
 
 - now need to init extension before app run see readme

@@ -46,3 +46,45 @@ class MultiBlocProviderContext extends StatelessWidget {
     );
   }
 }
+
+class RepositoryProviderContext<T> extends StatelessWidget {
+  final Create<T> create;
+  final Widget child;
+
+  const RepositoryProviderContext({
+    Key? key,
+    required this.create,
+    required this.child,
+  }) : super(key: key);
+  @override
+  Widget build(BuildContext context) {
+    return RepositoryProvider(
+      create: create,
+      child: Builder(builder: (context) {
+        BlocExt.setBlocContext = context;
+        return child;
+      }),
+    );
+  }
+}
+
+class MultiRepositoryProviderContext extends StatelessWidget {
+  final List<SingleChildWidget> providers;
+  final Widget child;
+
+  const MultiRepositoryProviderContext({
+    Key? key,
+    required this.providers,
+    required this.child,
+  }) : super(key: key);
+  @override
+  Widget build(BuildContext context) {
+    return MultiRepositoryProvider(
+      providers: providers,
+      child: Builder(builder: (context) {
+        BlocExt.setBlocContext = context;
+        return child;
+      }),
+    );
+  }
+}
