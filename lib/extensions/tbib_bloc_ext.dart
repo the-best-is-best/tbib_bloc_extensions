@@ -2,7 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class TBIBBlocExt {
+  @Deprecated("Not needed to use it")
   static GlobalKey<NavigatorState>? navigationKey;
+
+  @Deprecated("Not needed to use it")
   static void init(GlobalKey<NavigatorState> sendNavigationKey) {
     navigationKey = sendNavigationKey;
   }
