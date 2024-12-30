@@ -76,7 +76,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     MyBlocBloc bloc = MyBlocBloc.get();
                     return Text(
                       bloc.alert,
-                      style: TextStyle(fontSize: 30, color: Colors.blue),
+                      style: const TextStyle(fontSize: 30, color: Colors.blue),
                     );
                   },
                 )

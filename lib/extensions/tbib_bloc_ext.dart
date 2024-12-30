@@ -18,7 +18,8 @@ extension ExtBlocExt on TBIBBlocExt {
   T getBloc<T extends StateStreamableSource<Object?>>(
       {bool? listen, BuildContext? context}) {
     try {
-      return BlocProvider.of<T>(_blocContext, listen: listen ?? false);
+      return BlocProvider.of<T>(context ?? _blocContext,
+          listen: listen ?? false);
     } catch (_) {
       return BlocProvider.of<T>(
           TBIBBlocExt.navigationKey!.currentState!.context,
