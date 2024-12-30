@@ -1,3 +1,8 @@
+## 1.1.0 - 1.1.1
+
+- fix bug
+- update dep
+
 ## 1.0.4
 
 - support bloc repository
