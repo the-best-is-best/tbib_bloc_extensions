@@ -40,14 +40,30 @@ extension ExtBlocExt on TBIBBlocExt {
             );
           } else {
             throw FlutterError(
-                'Navigation key or valid context is required to retrieve the Bloc.');
+              '''
+        BlocProvider.of() called with a context that does not contain a $T.
+        No ancestor could be found starting from the context that was passed to BlocProvider.of<$T>().
+
+        This can happen if the context you used comes from a widget above the BlocProvider.
+
+        The context used was: $context
+        ''',
+            );
           }
         }
       }
 
       // في حال عدم وجود سياق وعدم توفر navigationKey
       throw FlutterError(
-          'A valid BuildContext or NavigationKey is required to retrieve the Bloc.');
+        '''
+        BlocProvider.of() called with a context that does not contain a $T.
+        No ancestor could be found starting from the context that was passed to BlocProvider.of<$T>().
+
+        This can happen if the context you used comes from a widget above the BlocProvider.
+
+        The context used was: $context
+        ''',
+      );
     }
   }
 }
