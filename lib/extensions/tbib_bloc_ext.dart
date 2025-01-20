@@ -5,10 +5,13 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 var BlocExt = TBIBBlocExt();
 
 class TBIBBlocExt {
-  static GlobalKey<NavigatorState>? navigationKey;
+  static GlobalKey<NavigatorState>? _navigationKey;
 
+  static GlobalKey<NavigatorState>? get navigationKey => _navigationKey;
+
+  @Deprecated("Not need use it")
   static void init(GlobalKey<NavigatorState> sendNavigationKey) {
-    navigationKey = sendNavigationKey;
+    _navigationKey = sendNavigationKey;
   }
 }
 
