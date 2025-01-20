@@ -52,17 +52,9 @@ extension ExtBlocExt on TBIBBlocExt {
           }
         }
       }
-
-      // في حال عدم وجود سياق وعدم توفر navigationKey
-      throw FlutterError(
-        '''
-        BlocProvider.of() called with a context that does not contain a $T.
-        No ancestor could be found starting from the context that was passed to BlocProvider.of<$T>().
-
-        This can happen if the context you used comes from a widget above the BlocProvider.
-
-        The context used was: $context
-        ''',
+      return BlocProvider.of<T>(
+        TBIBBlocExt.navigationKey!.currentState!.context,
+        listen: listen,
       );
     }
   }
