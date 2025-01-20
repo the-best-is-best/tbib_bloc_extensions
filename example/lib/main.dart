@@ -33,8 +33,6 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-
   // This widget is the home page of your application. It is stateful, meaning
   // that it has a State object (defined below) that contains fields that affect
   // how it looks.
@@ -45,6 +43,8 @@ class MyHomePage extends StatefulWidget {
   // always marked "final".
 
   final String title;
+
+  const MyHomePage({super.key, required this.title});
 
   @override
   State<MyHomePage> createState() => _MyHomePageState();
@@ -73,7 +73,7 @@ class _MyHomePageState extends State<MyHomePage> {
               children: [
                 BlocBuilder<MyBlocBloc, MyBlocState>(
                   builder: (context, state) {
-                    MyBlocBloc bloc = MyBlocBloc.get();
+                    MyBlocBloc bloc = MyBlocBloc.get(context);
                     return Text(
                       bloc.alert,
                       style: const TextStyle(fontSize: 30, color: Colors.blue),

@@ -1,3 +1,7 @@
+## 2.0.1
+
+- context is needed as default
+
 ## 2.0.0
 
 - dep on bloc 9.0.0
