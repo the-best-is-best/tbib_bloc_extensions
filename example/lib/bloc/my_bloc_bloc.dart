@@ -8,6 +8,5 @@ part 'my_bloc_state.dart';
 class MyBlocBloc extends Bloc<MyBlocEvent, MyBlocState> {
   String alert = "Bloc is worked";
   MyBlocBloc() : super(MyBlocInitial());
-  static MyBlocBloc get(BuildContext context) =>
-      BlocExt.getBloc<MyBlocBloc>(context);
+  static MyBlocBloc get(BuildContext context) => BlocExt.getBloc<MyBlocBloc>();
 }

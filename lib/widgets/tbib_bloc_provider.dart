@@ -4,7 +4,6 @@ import 'package:provider/provider.dart';
 import 'package:provider/single_child_widget.dart';
 import 'package:tbib_bloc_extensions/extensions/tbib_bloc_ext.dart';
 
-@Deprecated("Not need use it")
 class BlocProviderContext<T extends StateStreamableSource<Object?>>
     extends StatelessWidget {
   final Create<T> create;
@@ -27,7 +26,6 @@ class BlocProviderContext<T extends StateStreamableSource<Object?>>
   }
 }
 
-@Deprecated("Not need use it")
 class MultiBlocProviderContext extends StatelessWidget {
   final List<SingleChildWidget> providers;
   final Widget child;
@@ -49,7 +47,6 @@ class MultiBlocProviderContext extends StatelessWidget {
   }
 }
 
-@Deprecated("Not need use it")
 class MultiRepositoryProviderContext extends StatelessWidget {
   final List<SingleChildWidget> providers;
   final Widget child;
@@ -71,7 +68,6 @@ class MultiRepositoryProviderContext extends StatelessWidget {
   }
 }
 
-@Deprecated("Not need use it")
 class RepositoryProviderContext<T> extends StatelessWidget {
   final Create<T> create;
   final Widget child;

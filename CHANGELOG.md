@@ -1,8 +1,6 @@
-## 2.0.1
+## 2.0.3
 
-- context is needed as default
-- widgets is deprecated
-- set navigation key deprecated
+- fix bugs
 
 ## 2.0.0
 

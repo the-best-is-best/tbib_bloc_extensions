@@ -9,7 +9,6 @@ class TBIBBlocExt {
 
   static GlobalKey<NavigatorState>? get navigationKey => _navigationKey;
 
-  @Deprecated("Not need use it")
   static void init(GlobalKey<NavigatorState> sendNavigationKey) {
     _navigationKey = sendNavigationKey;
   }
@@ -17,17 +16,38 @@ class TBIBBlocExt {
 
 extension ExtBlocExt on TBIBBlocExt {
   static late BuildContext _blocContext;
-  set setBlocContext(context) => _blocContext = context;
-  //BuildContext get getBlocContext => blocContext;
-  T getBloc<T extends StateStreamableSource<Object?>>(BuildContext? context,
-      {bool? listen}) {
+
+  set setBlocContext(BuildContext context) => _blocContext = context;
+
+  T getBloc<T extends StateStreamableSource<Object?>>({
+    BuildContext? context,
+    bool listen = false,
+  }) {
     try {
-      return BlocProvider.of<T>(context ?? _blocContext,
-          listen: listen ?? false);
+      // محاولة الحصول على الـ Bloc باستخدام السياق الحالي
+      return BlocProvider.of<T>(_blocContext, listen: listen);
     } catch (_) {
-      return BlocProvider.of<T>(
-          TBIBBlocExt.navigationKey!.currentState!.context,
-          listen: listen ?? false);
+      // في حال حدوث خطأ، استخدام السياق المرسل (إن وجد)
+      if (context != null) {
+        try {
+          return BlocProvider.of<T>(context, listen: listen);
+        } catch (_) {
+          // إذا فشل، يتم استخدام navigationKey (إذا كانت متوفرة)
+          if (TBIBBlocExt.navigationKey?.currentState?.context != null) {
+            return BlocProvider.of<T>(
+              TBIBBlocExt.navigationKey!.currentState!.context,
+              listen: listen,
+            );
+          } else {
+            throw FlutterError(
+                'Navigation key or valid context is required to retrieve the Bloc.');
+          }
+        }
+      }
+
+      // في حال عدم وجود سياق وعدم توفر navigationKey
+      throw FlutterError(
+          'A valid BuildContext or NavigationKey is required to retrieve the Bloc.');
     }
   }
 }
